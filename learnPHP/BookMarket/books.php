@@ -33,6 +33,7 @@
                         <p><?php echo $book["author"]. " | ".$book["releaseDate"]; ?></p>
                         <p><?php echo mb_substr($book["description"], 0, 90, 'utf-8')."..."; ?></p>
                         <p><?php echo $book["unitPrice"]; ?>원</p>
+                        <p><a href="./book.php?id=<?php echo $id;?>"><button class="btn btn-outline-secondary" type="button">상세 정보</button></a></p>
                     </div>
                 </div>
                 <?php

@@ -29,4 +29,15 @@ function getAllBooks(){
     global $BookArray;
     return $BookArray;
 }
+
+function getBookById($id){
+    global $BookArray, $bookById;
+    for($i=0; $i<count($BookArray); $i++){
+        if(array_key_exists($id, $BookArray)){
+            $bookById = $BookArray[$id];
+            break;
+        }
+    }
+    return $bookById;
+}
 ?>
