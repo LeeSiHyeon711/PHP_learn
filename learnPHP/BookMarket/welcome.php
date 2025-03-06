@@ -39,6 +39,9 @@
              </nav>
         </header>
         <?php
+        
+        date_default_timezone_set("Asia/Seoul");
+
         $greeting = "도서 쇼핑몰에 오신 것을 환영합니다";
         $tagline = "Welcome to Web Market";
         ?>
@@ -55,6 +58,20 @@
                     <div class="col-md-12">
                         <div class="h-100 p-5">
                             <h2><?php echo $tagline ?></h2>
+                            <?php
+                            $date = date("Y/m/d");
+                            $hour = date("H");
+                            $minute = date("i");
+                            $second = date("s");
+                            if($hour<12||$hour==24){
+                                $am_pm = "AM";
+                            }else {
+                                $am_pm = "PM";
+                                $hour = $hour-12;
+                            }
+                            $time = $hour . ":" . $minute . ":" . $second . " " . $am_pm;
+                            echo "현재 접속 일시 : ". $date . " " . $time;
+                            ?>
                         </div>
                     </div>
                 </div>
