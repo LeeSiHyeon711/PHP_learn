@@ -1,14 +1,14 @@
-<html>
+<!DOCTYPE html>
+<html class="h-100">
     <head>
         <title>Welcome</title>
         <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" 
         rel="stylesheet">
-        <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body class="d-flex flex-column h-100">
         <header>
             <!-- Fixed navbar -->
-             <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+                <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
                 <div class="container-fluid">
                     <a class="navbar-brand" href="./welcome.php">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" 
@@ -28,6 +28,10 @@
                                 <a class="nav-link active" aria-current="page"
                                 href="./welcome.php">Home</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page"
+                                href="./books.php">Books</a>
+                            </li>
                         </ul>
                         <form class="d-flex" role="search">
                             <input class="form-control me-2" type="search"
@@ -36,10 +40,10 @@
                         </form>
                     </div>
                 </div>
-             </nav>
+                </nav>
         </header>
         <?php
-        
+
         date_default_timezone_set("Asia/Seoul");
 
         $greeting = "도서 쇼핑몰에 오신 것을 환영합니다";
@@ -83,5 +87,6 @@
                 <span class="text-body-secondary"> &copy; BookMarket</span>
             </div>
         </footer>
+        <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
