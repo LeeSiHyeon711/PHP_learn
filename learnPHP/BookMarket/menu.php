@@ -24,6 +24,10 @@
                         <a class="nav-link active" aria-current="page"
                         href="./books.php">Books</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                        href="./addBook.php">Add Book</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search"
