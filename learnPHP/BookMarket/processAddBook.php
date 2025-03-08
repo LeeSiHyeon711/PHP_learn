@@ -30,23 +30,22 @@
                 $unitsInStock = $_POST["unitsInStock"];
                 $releaseDate = $_POST["releaseDate"];
                 $condition = $_POST["condition"];
+                $filename = $_FILES['bookImage']['name'];
 
-                $newBook["name"] = $name;
-                $newBook["unitPrice"] = $unitPrice;
-                $newBook["author"] = $author;
-                $newBook["description"] = $description;
-                $newBook["category"] = $category;
-                $newBook["unitsInStock"] = $unitsInStock;
-                $newBook["releaseDate"] = $releaseDate;
-                $newBook["condition"] = $condition;
+                $target_path = "./resources/images/";
 
-                addBook($bookId, $newBook);
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
+                $filename = $bookId.".".$ext;
 
-                $listOfBooks = getAllBooks();
-                for ($i=0; $i<count($listOfBooks); $i++){
-                    $id = key($listOfBooks);
-                    $book = $listOfBooks[$id];
-                    next($listOfBooks);
+                if(move_uploaded_file($_FILES["bookImage"]["tmp_name"], $target_path . $filename)){
+                    $handle = fopen("./domain.dat", "a");
+                    $book_info = "$bookId | $name | $unitPrice | $author | $description | $category | $unitsInStock | $releaseDate | $condition | $filename";
+                    fwrite($handle, "\n".$book_info);
+                    fclose($handle);
+                    Header("Location:books.php");
+                } else {
+                    echo "파일이 업로드되지 않았습니다. 다시 시도해 주세요!";
+                }
                 ?>
                 <div class="col-md-4">
                     <div class="h-100 p-5">
@@ -57,9 +56,6 @@
                         <p><a href="./book.php?id=<?php echo $id; ?>"><button class="btn btn-outline-secondary" type="button">상세 정보</button></a></p>
                     </div>
                 </div>
-                <?php
-                }
-                ?>
             </div>
         </div>
     </main>

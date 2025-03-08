@@ -2,8 +2,7 @@
 <html class="h-100">
 <head>
     <title>도서 목록</title>
-    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet">
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100">
     <?php
@@ -29,6 +28,9 @@
                 ?>
                 <div class="col-md-4">
                     <div class="h-100 p-5">
+                        <a href="processDownloadImage.php?file=<?php echo urlencode($book['filename']); ?>">
+                            <img src="./resources/images/<?php echo $book['filename']; ?>" style="width: 100%">
+                        </a>
                         <h2><?php echo $book["name"] ?></h2>
                         <p><?php echo $book["author"]. " | ".$book["releaseDate"]; ?></p>
                         <p><?php echo mb_substr($book["description"], 0, 90, 'utf-8')."..."; ?></p>

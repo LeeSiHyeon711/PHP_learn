@@ -2,8 +2,7 @@
 <html class="h-100">
 <head>
     <title>도서 정보</title>
-    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" 
-        rel="stylesheet">
+    <link href="./resources/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100">
     <?php
@@ -23,7 +22,10 @@
             $book = getBookByID($id);
             ?>
             <div class="row align-item-md-stretch">
-                <div class="col-md-12">
+                <div class="col-md-5">
+                    <img src="./resources/images/<?php echo $book['filename']; ?>" style="width: 70%" >
+                </div>
+                <div class="col-md-6">
                     <div class="h-100 p-5">
                         <h2><?php echo $book["name"]; ?></h2>
                         <p><?php echo $book["description"] ?></p>
@@ -31,7 +33,7 @@
                         <span class="badge text-bg-danger"> <?php echo $id; ?></span></p>
                         <p><b>저자</b> : <?php echo $book["author"] ?></p>
                         <p><b>분류</b> : <?php echo $book["category"]; ?></p>
-                        <p><b>재고</b> : <?php echo $book["unitInStock"]; ?></p>
+                        <p><b>재고</b> : <?php echo $book["unitsInStock"]; ?></p>
                         <p><?php echo $book["unitPrice"]; ?>원</p>
                         <p><a href="#" class="btn btn-info"> 도서주문 &raquo;</a><a href="./books.php" class="btn btn-secondary"> 도서목록 &raquo;</a></p>
                     </div>
