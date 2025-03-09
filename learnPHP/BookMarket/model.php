@@ -16,6 +16,7 @@ while(!feof($handle)){
     $BookArray[$id]["releaseDate"] = trim($array[7]);
     $BookArray[$id]["condition"] = trim($array[8]);
     $BookArray[$id]["filename"] = trim($array[9]);
+    $BookArray[$id]["quantity"] = trim($array[10]);
 }
 fclose($handle);
 
