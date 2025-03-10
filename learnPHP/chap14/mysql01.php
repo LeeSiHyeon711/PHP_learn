@@ -4,19 +4,17 @@
     </head>
     <body>
         <?php
-        $servername = "localhost";      // 서버명
-        $username = "admin";            // 사용자명
-        $password = "admin1234";        // 암호
-        $dbname = "phpbookdb";          // 데이터베이스명
-
-        // 연결 생성
+        $servername = "localhost";
+        $username = "root";   // 기본 MySQL 계정
+        $password = "";       // root 계정은 비밀번호 없음
+        $dbname = "BookMarketDB";
+        
         $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-        // 연결 확인
-        if(!$conn){
-            die("데이터베이스 연결 실패 : ".mysqli_connect_error());
+        
+        if (!$conn) {
+            die("데이터베이스 연결 실패 : " . mysqli_connect_error());
         }
-        echo "데이터베이스 연결 성공 : ".mysqli_get_host_info($conn);
+        echo "데이터베이스 연결 성공!".mysqli_get_host_info($conn);
         mysqli_close($conn);
         ?>
     </body>
